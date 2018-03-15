@@ -304,8 +304,11 @@ As a template for generating your own translation file, use the English one that
 ## Examples
 
 ### Using the Validation Framework with WPF
+
 ![WPF example](./Doc/Screenshot_2.png)
+
 See project ValidationFramework.Examples.Wpf in the source code for details.
+
 Things to note:
 
  - You need to u the default appearance of input controls to provide a way of displaying errors to the user (see App.xaml on how to do so).
