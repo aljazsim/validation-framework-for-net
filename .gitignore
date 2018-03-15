@@ -1,0 +1,7 @@
+obj
+bin
+.vs
+Build/GeneratedReports/*
+Packages/*
+*.user
+*.bak

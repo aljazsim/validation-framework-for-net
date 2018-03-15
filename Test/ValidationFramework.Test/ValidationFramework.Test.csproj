@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\Packages\Text.Analyzers.2.6.0\build\Text.Analyzers.props" Condition="Exists('..\..\Packages\Text.Analyzers.2.6.0\build\Text.Analyzers.props')" />
+  <Import Project="..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A91CEA3B-96C7-4F5E-AEEC-6300D311ACCE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ValidationFramework.Test</RootNamespace>
+    <AssemblyName>ValidationFramework.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DefensiveProgrammingFramework, Version=1.0.2.1, Culture=neutral, PublicKeyToken=ad755474965819fa, processorArchitecture=MSIL">
+      <HintPath>..\..\Packages\DefensiveProgrammingFramework.1.0.2\lib\netstandard2.0\DefensiveProgrammingFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\Packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\Packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Example3.cs" />
+    <Compile Include="Example2.cs" />
+    <Compile Include="Example.cs" />
+    <Compile Include="ExamplesTest.cs" />
+    <Compile Include="Exceptions\ValidationErrorExceptionTest.cs" />
+    <Compile Include="Exceptions\ValidationExceptionTest.cs" />
+    <Compile Include="FaultyValidatorAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Valdators\Collection\MustContainNullAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotContainNullAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\MustContainDuplicatesAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotContainDuplicatesAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotBeShorterThanAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotBeLongerThanAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\MustBeEmptyAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotBeEmptyAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeBetweenAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeGreaterThanAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeGreaterThanOrEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeLessThanOrEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeLessThanAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeLessThanOrEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeLessThanAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeGreaterThanOrEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeGreaterThanAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\CannotBeEqualToAttributeTest.cs" />
+    <Compile Include="Valdators\Comparable\MustBeBetweenAttributeTest.cs" />
+    <Compile Include="Valdators\Date\MustBeInTheFutureAttributeTest.cs" />
+    <Compile Include="Valdators\Date\MustBeTodayAttributeTest.cs" />
+    <Compile Include="Valdators\Date\MustBeInThePastAttributeTest.cs" />
+    <Compile Include="Valdators\Date\MustBeDateAttributeTest.cs" />
+    <Compile Include="Valdators\FileSystem\MustBeValidFileNameAttributeTest.cs" />
+    <Compile Include="Valdators\FileSystem\MustBeValidFilePathAttributeTest.cs" />
+    <Compile Include="Valdators\Object\MustBeOneOfAttributeTest.cs" />
+    <Compile Include="Valdators\Object\CannotBeOneOfAttributeTest.cs" />
+    <Compile Include="Valdators\Object\CannotBeNullAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\CannotBeNullOrEmptyAttributeTest.cs" />
+    <Compile Include="Valdators\Collection\MustBeNullOrEmptyAttributeTest.cs" />
+    <Compile Include="Valdators\Object\MustBeNullAttributeTest.cs" />
+    <Compile Include="Valdators\Object\CannotBeSubTypeOfAttributeTest.cs" />
+    <Compile Include="Valdators\Object\CannotBeTypeOfAttributeTest.cs" />
+    <Compile Include="Valdators\Object\MustBeTypeOfAttributeTest.cs" />
+    <Compile Include="Valdators\Object\MustBeSubTypeOfAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeTitleCaseAttributeTest.cs" />
+    <Compile Include="Valdators\Number\MustBePreciseToDecimalPlacesAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeValidIntegerAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeValidUriAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeValidTimeSpanAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeValidDateAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeUpperCaseAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustBeLowerCaseAttributeTest.cs" />
+    <Compile Include="Valdators\FileSystem\MustBeValidDirectoryPathAttributeTest.cs" />
+    <Compile Include="Valdators\String\MustMatchAttributeTest.cs" />
+    <Compile Include="Valdators\String\CannotMatchAttributeTest.cs" />
+    <Compile Include="Valdators\String\CannotBeNullOrWhitespaceAttributeTest.cs" />
+    <Compile Include="ValidationMessageCollectionTest.cs" />
+    <Compile Include="ValidationMessageComparer.cs" />
+    <Compile Include="ValidationMessageTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\ValidationFramework\ValidationFramework.csproj">
+      <Project>{189eec61-abd5-4107-bf65-2f4f61a5914a}</Project>
+      <Name>ValidationFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\Packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Text.Analyzers.2.6.0\analyzers\dotnet\cs\Text.Analyzers.dll" />
+    <Analyzer Include="..\..\Packages\Text.Analyzers.2.6.0\analyzers\dotnet\cs\Text.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Examples\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\Microsoft.CodeQuality.Analyzers.2.6.0\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\Microsoft.NetCore.Analyzers.2.6.0\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\Microsoft.NetFramework.Analyzers.2.6.0\build\Microsoft.NetFramework.Analyzers.props'))" />
+    <Error Condition="!Exists('..\..\Packages\Text.Analyzers.2.6.0\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\Packages\Text.Analyzers.2.6.0\build\Text.Analyzers.props'))" />
+  </Target>
+  <Import Project="..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\..\Packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets')" />
+</Project>

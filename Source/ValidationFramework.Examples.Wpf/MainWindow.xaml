@@ -1,0 +1,61 @@
+﻿<Window x:Class="ValidationFramework.Examples.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ValidationFramework.Examples.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+
+            <!--validation language-->
+            <Label Content="Validation language" Grid.Column="0" Grid.Row="0" />
+            <ComboBox Name="comboValidationLanguage" Margin="3" Grid.Column="1" Grid.Row="0" />
+
+            <!--first name-->
+            <Label Content="First name" Grid.Column="0" Grid.Row="1" />
+            <TextBox Name="textFirstName" Grid.Column="1" Grid.Row="1" />
+
+            <!--last name-->
+            <Label Content="Last name" Grid.Column="0" Grid.Row="2" />
+            <TextBox Name="textLastName" Grid.Column="1" Grid.Row="2" />
+
+            <!--phone number-->
+            <Label Content="Phone number" Grid.Column="0" Grid.Row="3" />
+            <TextBox Name="textPhoneNumber" Grid.Column="1" Grid.Row="3" />
+
+            <!--email-->
+            <Label Content="E-mail" Grid.Column="0" Grid.Row="4" />
+            <TextBox Name="textEmail" Grid.Column="1" Grid.Row="4" />
+
+            <!--user type-->
+            <Label Content="User type" Grid.Column="0" Grid.Row="5" />
+            <ComboBox Name="comboUserType" Margin="3" Grid.Column="1" Grid.Row="5" />
+
+            <!--username-->
+            <Label Content="Username" Grid.Column="0" Grid.Row="6" />
+            <TextBox Name="textUsername" Grid.Column="1" Grid.Row="6" />
+
+            <!--submit-->
+            <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Name="buttonSubmit" Content="Submit" Margin="3" Width="75" Height="30" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>
