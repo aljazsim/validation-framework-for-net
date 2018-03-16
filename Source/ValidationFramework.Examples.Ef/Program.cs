@@ -27,7 +27,14 @@
                 ec.Items.Add(item);
                 ec.Orders.Add(order);
 
-                ec.SaveChanges();
+                try
+                {
+                    ec.SaveChanges();
+                }
+                catch (ValidationException ex)
+                {
+                    var validaitonMessages = ex.ValidaitonMessages;
+                }
             }
         }
     }
