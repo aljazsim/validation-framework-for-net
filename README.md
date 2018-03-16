@@ -320,6 +320,8 @@ Things to note:
 
 ### Using with EntityFramework
 
+![EF example](./Doc/Screenshot_3.png)
+
 See project ValidationFramework.Examples.Ef in the source code for details.
 
 ## Extending the Validation Framework
