@@ -113,7 +113,7 @@ Validation framework contains a large number to help you easily set validation c
  - MustBeValidUri (demanding the value is a valid URI),
  - MustBeUpperCase (demanding the value is an uppercase string)
 
-and many more. See the source code for a complete list. They all start with either "Must" or "Cannot".
+and many more. See the complete list down below. They all start with either "Must" or "Cannot".
 
 Using validation attributes is simple and requires little code to write, keeping your classes short and easy to understand. Making your own custom validation attributes is easy to do (see section on extending Validation Framework).
 Not all validation attributes can be used with all property types. For example using MustMatch attribute on an integer property makes no sense and will throw a ValidationErrorException:
@@ -301,6 +301,43 @@ public string Name
 }
 ```
 As a template for generating your own translation file, use the English one that comes in with the source code (Source/ValidationFramework/Localization/ValdationMessages.resx).
+## List of validation attributes
+
+|cannot|must|
+|--|--|
+|CannotBeBetweenAttribute|MustBeBetweenAttribute|
+|CannotBeEmptyAttribute|MustBeEmptyAttribute|
+|CannotBeEqualToAttribute|MustBeEqualToAttribute|
+|CannotBeGreaterThanAttribute|MustBeGreaterThanAttribute|
+|CannotBeGreaterThanOrEqualToAttribute|MustBeGreaterThanOrEqualToAttribute|
+|CannotBeLessThanAttribute|MustBeLessThanAttribute|
+|CannotBeLessThanOrEqualToAttribute|MustBeLessThanOrEqualToAttribute|
+|CannotBeLongerThanAttribute||
+|CannotBeNullAttribute|MustBeNullAttribute|
+|CannotBeNullOrEmptyAttribute|MustBeNullOrEmptyAttribute|
+|CannotBeNullOrWhitespaceAttribute||
+|CannotBeOneOfAttribute|MustBeOneOfAttribute|
+|CannotBeShorterThanAttribute||
+|CannotBeSubTypeOfAttribute|MustBeSubTypeOfAttribute|
+|CannotBeTypeOfAttribute|MustBeTypeOfAttribute|
+|CannotContainDuplicatesAttribute|MustContainDuplicatesAttribute|
+|CannotContainNullAttribute|MustContainNullAttribute|
+|CannotMatchAttribute|MustMatchAttribute|
+||MustBeDateAttribute|
+||MustBeInTheFutureAttribute|
+||MustBeInThePastAttribute|
+||MustBeLowerCaseAttribute|
+||MustBePreciseToDecimalPlacesAttribute|
+||MustBeTitleCaseAttribute|
+||MustBeTodayAttribute|
+||MustBeUpperCaseAttribute|
+||MustBeValidDateAttribute|
+||MustBeValidDirectoryPathAttribute|
+||MustBeValidFileNameAttribute|
+||MustBeValidFilePathAttribute|
+||MustBeValidIntegerAttribute|
+||MustBeValidTimeSpanAttribute|
+||MustBeValidUriAttribute|
 
 ## Examples
 
@@ -465,4 +502,5 @@ Or just simply search for ValdationFramework in NuGet package manager in Visual 
  - When you need to perform validation whose result depends on value of more than one property, do so by overriding the Validate() method. That cannot be done with a validation attribute.
  - Validation Framework is not thread safe.
  - In order to prevent executing an operation on an invalid object your cant throw a ValidationException (see EF example code).
+
 
