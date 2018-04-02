@@ -6,7 +6,7 @@ using DefensiveProgrammingFramework;
 namespace ValidationFramework
 {
     /// <summary>
-    /// The validation error exception thrown when there is an error when executing validation throught a validation attribute.
+    /// The validation error exception thrown when there is an error when executing validation through a validation attribute.
     /// </summary>
     /// <seealso cref="System.Exception" />
     public sealed class ValidationErrorException : Exception

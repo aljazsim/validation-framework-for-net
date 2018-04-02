@@ -30,14 +30,14 @@ namespace ValidationFramework
         /// Validates the specified property name.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        /// <param name="value">The value.</param>
+        /// <param name="propertyValue">The property value.</param>
         /// <param name="validationContext">The validation context.</param>
         /// <returns>
         /// The list of validation messages.
         /// </returns>
-        public virtual ValidationMessageCollection Validate(string propertyName, object value, string validationContext)
+        public virtual ValidationMessageCollection Validate(string propertyName, object propertyValue, string validationContext)
         {
-            return this.ValidateAttributes(propertyName, value, validationContext);
+            return this.ValidateAttributes(propertyName, propertyValue, validationContext);
         }
 
         #endregion Public Methods
