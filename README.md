@@ -1,10 +1,11 @@
+
 # Validation Framework for .NET Framework
 Validating object state can be difficult to do correctly, but failing to do so can cause be a cause many different types of issues: invalid data being stored in the database, users being allowed to do perform actions they  weren't supposed to, applications getting into an invalid state, etc.
 This is where Validation Framework comes in. It allows programmers to validate objects in a simple and extensible way to validate the state of their objects. 
 
 ## Validation
 
-Object can be validated partially by validating the value a specific property or as a whole by validating the values of all its properties.
+Object can be validated partially by validating the value of a specific property or as a whole by validating the values of all its properties.
 
 ### How to use the Validation Framework
 
@@ -112,7 +113,7 @@ Validation framework contains a large number to help you easily set validation c
  - MustBeValidUri (demanding the value is a valid URI),
  - MustBeUpperCase (demanding the value is an uppercase string)
 
-and many more. See the source code for a complete list. 
+and many more. See the source code for a complete list. They all start with either "Must" or "Cannot".
 
 Using validation attributes is simple and requires little code to write, keeping your classes short and easy to understand. Making your own custom validation attributes is easy to do (see section on extending Validation Framework).
 Not all validation attributes can be used with all property types. For example using MustMatch attribute on an integer property makes no sense and will throw a ValidationErrorException:
@@ -142,11 +143,11 @@ catch (ValidationErrorException ex)
    // ex.InnerException.Message == "Value must be of type String."
 }
 ```
-All validation attributes check if value type is compatible with their validation procedure.
+All validation attributes must check if value type is compatible with their validation procedure.
 
 ### Custom validation
 
-Sometimes using attributes is not flexible enough for all scenarios. In that case you have the option of performing validation within the Validate() method:
+Using attributes may not be flexible enough in all scenarios. In that case you have the option of performing validation within the Validate() method:
  ```csharp
 public override ValidationMessageCollection Validate(string propertyName, object value, string validationContext)
 {
