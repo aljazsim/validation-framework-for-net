@@ -107,11 +107,11 @@ namespace ValidationFramework
         }
 
         /// <summary>
-        /// Determines whether an element is in the <see cref="System.Collections.ObjectModel.Collection`1"></see>.
+        /// Determines whether an element is in the collection.
         /// </summary>
-        /// <param name="item">The object to locate in the <see cref="System.Collections.ObjectModel.Collection`1"></see>. The value can be null for reference types.</param>
+        /// <param name="item">The object to locate in the collection. The value can be null for reference types.</param>
         /// <returns>
-        /// true if <paramref name="item">item</paramref> is found in the <see cref="System.Collections.ObjectModel.Collection`1"></see>; otherwise, false.
+        /// true if <paramref name="item">item</paramref> is found in the collection; otherwise, false.
         /// </returns>
         public new bool Contains(ValidationMessage item)
         {
