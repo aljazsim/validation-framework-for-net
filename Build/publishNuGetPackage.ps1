@@ -6,7 +6,7 @@ $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuil
 $nuget = "C:\Program Files (x86)\NuGet\nuget.exe"
 
 $projectFilePath = "..\Source\ValidationFramework\ValidationFramework.csproj";
-$nugetPackageFilePath = "..\Source\ValidationFramework\bin\Release\ValidationFramework.1.0.2.nupkg"
+$nugetPackageFilePath = "..\Source\ValidationFramework\bin\Release\ValidationFramework.1.0.3.nupkg"
 
 # remove references to stylecop and fxcop
 (Get-Content $projectFilePath) -replace ".*StyleCop.*", "" | Out-File $projectFilePath
