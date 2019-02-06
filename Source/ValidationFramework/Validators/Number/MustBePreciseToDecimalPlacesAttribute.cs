@@ -103,21 +103,21 @@ namespace ValidationFramework
 
                 if (valueType == typeof(decimal))
                 {
-                    decimal koficient = (decimal)Math.Pow(10, this.DecimalPlaces);
+                    decimal coefficient = (decimal)Math.Pow(10, this.DecimalPlaces);
 
-                    return (decimal)value == (decimal)(Math.Round((decimal)value * koficient) / koficient);
+                    return (decimal)value == Math.Round((decimal)value * coefficient) / coefficient;
                 }
                 else if (valueType == typeof(double))
                 {
-                    double koficient = (double)Math.Pow(10, this.DecimalPlaces);
+                    double coefficient = Math.Pow(10, this.DecimalPlaces);
 
-                    return (double)value == (double)(Math.Round((double)value * koficient) / koficient);
+                    return (double)value == Math.Round((double)value * coefficient) / coefficient;
                 }
                 else if (valueType == typeof(float))
                 {
-                    float koficient = (float)Math.Pow(10, this.DecimalPlaces);
+                    float coefficient = (float)Math.Pow(10, this.DecimalPlaces);
 
-                    return (float)value == (float)(Math.Round((float)value * koficient) / koficient);
+                    return (float)value == (float)(Math.Round((float)value * coefficient) / coefficient);
                 }
                 else if (valueType == typeof(byte) ||
                          valueType == typeof(short) ||

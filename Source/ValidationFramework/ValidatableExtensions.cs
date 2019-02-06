@@ -137,7 +137,7 @@ namespace ValidationFramework
                     }
                     catch (Exception ex)
                     {
-                        throw new ValidationErrorException("Unhandeled validation exception occured.", validationAttribute.GetType(), validationSource.GetType(), propertyName, ex);
+                        throw new ValidationErrorException("Unhandled validation exception occurred.", validationAttribute.GetType(), validationSource.GetType(), propertyName, ex);
                     }
 
                     if (!isValid)

@@ -1,7 +1,6 @@
-
 # Validation Framework for .NET Framework
-Validating object state can be difficult to do correctly, but failing to do so can cause be a cause many different types of issues: invalid data being stored in the database, users being allowed to do perform actions they  weren't supposed to, applications getting into an invalid state, etc.
-This is where Validation Framework comes in. It allows programmers to validate objects in a simple and extensible way to validate the state of their objects. 
+Validating object state can be difficult to do correctly, but failing to do so can cause many different types of issues: invalid data being stored in the database, users being allowed to perform actions they  weren't supposed to, applications getting into an invalid state, etc.
+This is where Validation Framework comes in. It allows programmers to validate objects in a simple and extensible way. 
 
 ## Validation
 
@@ -11,7 +10,7 @@ Object can be validated partially by validating the value of a specific property
 
 When using the Validation Framework for object validation the programmer has two options of including the validation functionality:
 
- - By inheriting from the Validatable class :
+* By inheriting from the Validatable class :
  ```csharp
 using ValidationFramework;
 
@@ -20,7 +19,7 @@ public class Example : Validatable
 }
 ```
 
- - Sometimes you might not have the option of inheriting from a certain class. In such a case, you can implement the IValidatable interface:
+* Sometimes you might not have the option of inheriting from a certain class. In such a case, you can implement the IValidatable interface:
  
  ```csharp
 using ValidationFramework;
@@ -70,16 +69,16 @@ public class Example : Validatable
 ```
 The example above validates that value of property Name:
 
- - cannot be null or empty,
- - cannot be longer than 20 characters and
- - match the specified regular expression (only word characters and spaces).
+* cannot be null or empty,
+* cannot be longer than 20 characters and
+* match the specified regular expression (only word characters and spaces).
 
 How to perform validation:
 
  ```csharp
 Example example;
 bool isValid;
-ValidationMessageCollection validationMesasges;
+ValidationMessageCollection validationMessasges;
 
 example = new Example();
 example.Name = "Test";
@@ -99,24 +98,25 @@ validationMessages.First().PropertyName; // "Name"
 
 ![ValidationMessages](./Doc/Screenshot_1.png)
 
-Validation framework contains a large number to help you easily set validation conditions on properties. For example:
+Validation framework contains a large number of validation attributes to help you easily set validation conditions on properties. For example:
 
- - CannotBeNull (demanding the value is not equal to null),
- - CannotBeNullOrEmpty (demanding the value is not null or empty),
- - MustBeOneOf (demanding the value belongs to the specified set of values),
- - MustBeGreaterThan (demanding the value is greater than the specified limit),
- - CannotBeLongerThan (demanding the value is not longer than the specified limit),
- - CannotContainDuplicates (demanding the value does not contain duplicates),
- - CannotContainNull (demanding the value does not contain null),
- - MustBeValidFilePath (demanding the value is a valid file path),
- - MustMatch (demanding the value matches the specified regular expression),
- - MustBeValidUri (demanding the value is a valid URI),
- - MustBeUpperCase (demanding the value is an uppercase string)
+* CannotBeNull (demanding the value is not equal to null),
+* CannotBeNullOrEmpty (demanding the value is not null or empty),
+* MustBeOneOf (demanding the value belongs to the specified set of values),
+* MustBeGreaterThan (demanding the value is greater than the specified limit),
+* CannotBeLongerThan (demanding the value is not longer than the specified limit),
+* CannotContainDuplicates (demanding the value does not contain duplicates),
+* CannotContainNull (demanding the value does not contain null),
+* MustBeValidFilePath (demanding the value is a valid file path),
+* MustMatch (demanding the value matches the specified regular expression),
+* MustBeValidUri (demanding the value is a valid URI),
+* MustBeUpperCase (demanding the value is an uppercase string)
 
 and many more. See the complete list down below. They all start with either "Must" or "Cannot".
 
 Using validation attributes is simple and requires little code to write, keeping your classes short and easy to understand. Making your own custom validation attributes is easy to do (see section on extending Validation Framework).
 Not all validation attributes can be used with all property types. For example using MustMatch attribute on an integer property makes no sense and will throw a ValidationErrorException:
+ 
  ```csharp
 public class Example : Validatable
 {
@@ -172,12 +172,12 @@ The result of validation is a collection of validation messages. If the object o
 
 A validation message contains the following properties:
 
- - ValidationSource: the reference to the object being validated,
- - ValdationLevel: describing the severity of the validation issue (None, Info, Warning or Error)
- - PropertyName: the name of the property, belonging to validation source that the message relates to,
- - Message: the description of the validation issue,
- - ValidationContext: the name of the validation context (see section on validation contexts) and
- - ValidationPriority: the validation priority (see section on validation priorities).
+* ValidationSource: the reference to the object being validated,
+* ValidationLevel: describing the severity of the validation issue (None, Info, Warning or Error)
+* PropertyName: the name of the property, belonging to validation source that the message relates to,
+* Message: the description of the validation issue,
+* ValidationContext: the name of the validation context (see section on validation contexts) and
+* ValidationPriority: the validation priority (see section on validation priorities).
 
 #### Merging validation messages
 Sometimes you want to present only a single validation message by selecting the message with the highest validation level and highest validation priority. A collection of validation messages can be merged in the following way:
@@ -205,6 +205,7 @@ public class Example : Validatable
 		}
 		        
 		[CannotBeNull(ValidationContext = "existing")]
+		[MustBeNull(ValidationContext = "new")]
 		public DateTime? Modified
 		{
 			get;
@@ -225,7 +226,7 @@ public class Example : Validatable
 }
 ```
 
-In this case property Created must always present, but property Modified must have a value only when property Id > 0. Default validation context will always be validated, but you have the option of adding as many different active validation contexts as needed that change according to the internal state of the object by overriding the GetActiveValidationContexts() method.
+In this case property Created must always have a value present, but property Modified must have a value only when property Id > 0. Default validation context will always be validated, but you have the option of adding as many different active validation contexts as needed that change according to the internal state of the object by overriding the GetActiveValidationContexts() method.
  
 ### Validation priority
 Sometimes you have multiple validation rules that can be invalid at the same time:
@@ -349,12 +350,12 @@ See project ValidationFramework.Examples.Wpf in the source code for details.
 
 Things to note:
 
- - You need to u the default appearance of input controls to provide a way of displaying errors to the user (see App.xaml on how to do so).
- - The example uses ReactiveUI, but that is not necessary for using ValidationFramework.
- - The example shows how to 	implement interface IDataErrorInfo used by WPF to query for errors when setting a property value.
- - ReactiveUI bindings do not provide a simple way of including validations, that is why it's recommended to stick with default WPF bindings. Be sure to set property ValidatesOnDataErrors = true on bindings. The example sets th bindings in code, but you can do the same thing in XAML.
- - The example shows how to implement the option of suppressing validation on demand, so the user is presented with the errors only after the first submit attempt. 
- - The example shows how to use message localization in practice.
+* You need to u the default appearance of input controls to provide a way of displaying errors to the user (see App.xaml on how to do so).
+* The example uses ReactiveUI, but that is not necessary for using ValidationFramework.
+* The example shows how to 	implement interface IDataErrorInfo used by WPF to query for errors when setting a property value.
+* ReactiveUI bindings do not provide a simple way of including validations, that is why it's recommended to stick with default WPF bindings. Be sure to set property ValidatesOnDataErrors = true on bindings. The example sets th bindings in code, but you can do the same thing in XAML.
+* The example shows how to implement the option of suppressing validation on demand, so the user is presented with the errors only after the first submit attempt. 
+* The example shows how to use message localization in practice.
 
 ### Using with EntityFramework
 
@@ -400,12 +401,12 @@ public sealed class MustBeTrimmedAttribute : ValidationAttribute
 
 Instructions:
 
- - Make sure you derive from the ValidationAttribute class.
- - Make sure you use the AttributeUsage attribute. Just copy it from  the example.
- - Implement the default message describing the validation violation.
- - Implement the default message key, that can be used for message localization.
- - Generally null values are validated as valid (same goes for DBNull). If you need to constrain your property to contain an actual value, add the CannotBeNull attribute.
- - When expecting a value of a specific type, make sure you validate the value type.
+* Make sure you derive from the ValidationAttribute class.
+* Make sure you use the AttributeUsage attribute. Just copy it from  the example.
+* Implement the default message describing the validation violation.
+* Implement the default message key, that can be used for message localization.
+* Generally null values are validated as valid (same goes for DBNull). If you need to constrain your property to contain an actual value, add the CannotBeNull attribute.
+* When expecting a value of a specific type, make sure you validate the value type.
 
 Using the custom attribute:
 ```csharp
@@ -469,9 +470,9 @@ public sealed class CannotContainValuesLessThanOrEqualToAttribute : ValidationAt
 ```
 
 Instructions:
- - Make the default constructor private in order to force the user to provide the constraint by using the overloaded constructor.
- - Make sure you include a placeholder in the default message and not include the actual constraint value in the default value, because that will make localization difficult.
- - override GetParameters() method, where you provide the constraint values in the exact order as listed in the default message.
+* Make the default constructor private in order to force the user to provide the constraint by using the overloaded constructor.
+* Make sure you include a placeholder in the default message and not include the actual constraint value in the default value, because that will make localization difficult.
+* override GetParameters() method, where you provide the constraint values in the exact order as listed in the default message.
  
 Using the custom attribute:
 ```csharp
@@ -497,10 +498,10 @@ Or just simply search for ValdationFramework in NuGet package manager in Visual 
 
 ## Guidelines
 
- - Validation Framework can be used in different environments, like console applications, web applications, desktop applications, mobile applications or class libraries. You can use it to validate user input, request payloads, configuration, etc. It is flexible, but does not constrain you.
- - Implement custom validation attributes whenever you can. They will make your code short, clean and reusable.
- - When you need to perform validation whose result depends on value of more than one property, do so by overriding the Validate() method. That cannot be done with a validation attribute.
- - Validation Framework is not thread safe.
- - In order to prevent executing an operation on an invalid object your cant throw a ValidationException (see EF example code).
+* Validation Framework can be used in different environments, like console applications, web applications, desktop applications, mobile applications or class libraries. You can use it to validate user input, request payloads, configuration, etc. It is flexible, but does not constrain you.
+* Implement custom validation attributes whenever you can. They will make your code short, clean and reusable.
+* When you need to perform validation whose result depends on value of more than one property, do so by overriding the Validate() method. That cannot be done with a validation attribute.
+* Validation Framework is not thread safe.
+* In order to prevent executing an operation on an invalid object your cant throw a ValidationException (see EF example code).
 
 
