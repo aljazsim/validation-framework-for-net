@@ -5,6 +5,8 @@ namespace ValidationFramework.Test
     [TestClass]
     public class ExamplesTest
     {
+        #region Public Methods
+
         [TestMethod]
         public void TestExample2()
         {
@@ -40,8 +42,11 @@ namespace ValidationFramework.Test
             }
             catch (ValidationErrorException ex)
             {
-                Assert.AreEqual("Unhandeled validation exception occured.", ex.Message);
+                Assert.AreEqual("Unhandled validation exception occurred.", ex.Message);
+                Assert.AreEqual("The method or operation is not implemented.", ex.InnerException.Message);
             }
         }
+
+        #endregion Public Methods
     }
 }
