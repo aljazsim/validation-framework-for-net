@@ -1,55 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-    <StartupObject>ValidationFramework.Examples.Wpf.App</StartupObject>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DefensiveProgrammingFramework" Version="1.0.6" />
-    <PackageReference Include="ReactiveUI" Version="19.5.1" />
-    <PackageReference Include="ReactiveUI.WPF" Version="19.5.1" />
-  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="DefensiveProgrammingFramework" Version="1.0.6" />
+      <PackageReference Include="ReactiveUI" Version="19.5.31" />
+      <PackageReference Include="ReactiveUI.WPF" Version="19.5.31" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ValidationFramework\ValidationFramework.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Localization\ValidationMessageTranslations.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ValidationMessageTranslations.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Localization\ValidationMessageTranslations.sl.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="MainWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Localization\ValidationMessageTranslations.resx">
-      <LastGenOutput>ValidationMessageTranslations.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Localization\ValidationMessageTranslations.sl.resx">
-      <LastGenOutput>ValidationMessageTranslations.sl.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ValidationFramework\ValidationFramework.csproj" />
+    </ItemGroup>
 
 </Project>
