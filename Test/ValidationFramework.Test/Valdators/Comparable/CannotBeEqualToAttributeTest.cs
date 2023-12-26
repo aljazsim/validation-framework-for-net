@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ValidationFramework.Test.Valdators
 {
@@ -79,7 +77,7 @@ namespace ValidationFramework.Test.Valdators
             }
             catch (FormatException ex)
             {
-                Assert.AreEqual("Input string was not in a correct format.", ex.Message);
+                Assert.AreEqual("The input string 'a' was not in a correct format.", ex.Message);
             }
         }
 

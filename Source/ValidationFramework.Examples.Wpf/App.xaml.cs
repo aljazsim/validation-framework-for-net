@@ -6,11 +6,11 @@ using ValidationFramework.Examples.Wpf.Localization;
 
 namespace ValidationFramework.Examples.Wpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
+{
         #region Protected Methods
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace ValidationFramework.Examples.Wpf
 
             // setup validation message localization
             ValidationMessage.GetLocalizedMessage = messageKey => ValidationMessageTranslations.ResourceManager.GetString(messageKey, Thread.CurrentThread.CurrentUICulture);
-        }
+}
 
         #endregion Protected Methods
     }

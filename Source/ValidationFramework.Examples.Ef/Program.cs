@@ -4,9 +4,6 @@
     {
         public static void Main(string[] args)
         {
-            // make sure you have sql server express installed
-            // EF will create example_database database if it
-            // doesn't exist
             using (EntityContext ec = new EntityContext())
             {
                 Order order;
@@ -34,6 +31,13 @@
                 catch (ValidationException ex)
                 {
                     var validaitonMessages = ex.ValidaitonMessages;
+
+                    foreach (var message in validaitonMessages)
+                    {
+                        Console.WriteLine(message);
+                    }
+
+                    Console.ReadLine();
                 }
             }
         }
