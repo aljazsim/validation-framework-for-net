@@ -1,22 +1,10 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ValidationFramework.Examples.Ef
 {
     internal class EntityContext : DbContext
     {
-        #region Public Constructors
-
-        public EntityContext()
-            : base("sqlite")
-        {
-            Database.SetInitializer<EntityContext>(new CreateDatabaseIfNotExists<EntityContext>());
-        }
-
-        #endregion Public Constructors
-
-        #region Public Properties
 
         public DbSet<Item> Items
         {
@@ -30,20 +18,18 @@ namespace ValidationFramework.Examples.Ef
             set;
         }
 
-        #endregion Public Properties
-
-        #region Public Methods
-
         public override int SaveChanges()
         {
             ValidationMessageCollection validationMessages;
 
             validationMessages = new ValidationMessageCollection();
 
-            foreach (DbEntityEntry entry in this.ChangeTracker.Entries().Where(x => x.State == EntityState.Added ||
-                                                                                    x.State == EntityState.Modified))
+            foreach (EntityEntry entry in this.ChangeTracker.Entries().Where(x => x.State is EntityState.Added or EntityState.Modified))
             {
-                validationMessages.AddRange((entry.Entity as Entity).Validate());
+                if (entry.Entity is Entity)
+                {
+                    validationMessages.AddRange((entry.Entity as Entity)!.Validate());
+                }
             }
 
             if (validationMessages.Any(x => x.ValidationLevel == ValidationLevel.Error))
@@ -57,6 +43,9 @@ namespace ValidationFramework.Examples.Ef
             }
         }
 
-        #endregion Public Methods
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseInMemoryDatabase(databaseName: "InMemoryDb");
+        }
     }
 }
