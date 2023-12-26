@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ValidationFramework.Test
 {
@@ -37,11 +36,10 @@ namespace ValidationFramework.Test
             Assert.AreEqual(message1.ValidationSource, message2.ValidationSource);
 
             Assert.AreEqual(true, message1 == message2);
-            Assert.AreEqual(true, message1 == message1);
             Assert.AreEqual(0, message1.CompareTo(message2));
             Assert.AreEqual(true, message1.Equals(message2));
             Assert.AreEqual(true, message1.Equals(message2 as object));
-            Assert.IsTrue(message1.GetHashCode() > 0);
+            Assert.IsTrue(message1.GetHashCode() != 0);
 
             ValidationMessage.GetLocalizedMessage = x => "Napaka pri validaciji: {0}, {1}.";
 

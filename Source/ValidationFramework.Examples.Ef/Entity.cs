@@ -5,11 +5,13 @@ namespace ValidationFramework.Examples.Ef
 {
     public abstract class Entity : Validatable
     {
+        private static int _newIdSequence = 0;
+
         #region Public Constructors
 
         public Entity()
         {
-            this.Id = -1;
+            this.Id = --_newIdSequence;
         }
 
         #endregion Public Constructors

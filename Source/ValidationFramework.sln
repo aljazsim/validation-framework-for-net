@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationFramework", "ValidationFramework\ValidationFramework.csproj", "{189EEC61-ABD5-4107-BF65-2F4F61A5914A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationFramework.Test", "..\Test\ValidationFramework.Test\ValidationFramework.Test.csproj", "{A91CEA3B-96C7-4F5E-AEEC-6300D311ACCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationFramework.Test", "..\Test\ValidationFramework.Test\ValidationFramework.Test.csproj", "{A91CEA3B-96C7-4F5E-AEEC-6300D311ACCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationFramework.Examples.Wpf", "ValidationFramework.Examples.Wpf\ValidationFramework.Examples.Wpf.csproj", "{5BC7896B-BFA2-4B63-BE23-EA568351DD2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationFramework.Examples.Ef", "ValidationFramework.Examples.Ef\ValidationFramework.Examples.Ef.csproj", "{3405EC8B-F824-4339-B05E-30F9C0707067}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationFramework.Examples.Ef", "ValidationFramework.Examples.Ef\ValidationFramework.Examples.Ef.csproj", "{3405EC8B-F824-4339-B05E-30F9C0707067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
